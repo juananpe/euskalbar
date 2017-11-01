@@ -75,6 +75,7 @@ function KargatuBaliabideakFormularioa(formularioa,aurrizkia)
 function KargatuHobespenakFormularioa(formularioa,aurrizkia)
 {
 
+
     // Storage objektua kargatu eta aldaketak gordetzeko prestatu
 
     var storagealortu=browser.storage.local.get();
@@ -99,43 +100,26 @@ function KargatuHobespenakFormularioa(formularioa,aurrizkia)
 
                 if (itemak[izena]!==undefined)
                 {
-                    if (itemak[izena]=="0")
-                    {
-                        ctrl.checked=false;
-                    }
-                    else
-                    {
-                        ctrl.checked=true;
-                    }
+                        ctrl.checked=itemak[izena];
                 }
 
                 // Ez badago
 
                 else
                 {
-
                     // hobespenak.js fitxategian duen balioa jarri, han badago, eta storage objektuan gorde gero
 
                     if (izena in HasierakoHobespenak)
                     {
-                        if (HasierakoHobespenak[izena]=="0")
-                        {
-                            ctrl.checked=false;
-                            itemberriak[izena]="0";
-                        }
-                        else
-                        {
-                            ctrl.checked=true;
-                            itemberriak[izena]="1";
-                        }
+                            ctrl.checked=HasierakoHobespenak[izena];
+                            itemberriak[izena]=HasierakoHobespenak[izena];
                     }
-
                     // Bestela markatu gabe utzi eta storage objektuan gorde gero
 
                     else
                     {
                         ctrl.checked=false;
-                        itemberriak[izena]="0";
+                        itemberriak[izena]=false;
                     }
                 }
             }
